@@ -1,5 +1,3 @@
-const audio = document.getElementById("audio");
-
 // DATABASE
 const songs = [
     {
@@ -34,7 +32,7 @@ const songs = [
         id: "4",
         song_name: "Interstellar Mood",
         artist: "Nico Staf",
-        song_file: "./songs/Interstellar Mood.mp3",
+        song_file: "./songs/interstellar Mood.mp3",
         img: "./images/5.jpg"
     },
     {
@@ -45,6 +43,9 @@ const songs = [
         img: "./images/6.jpg"
     }
 ];
+
+
+const audio = document.getElementById("audio");
 
 
 $(document).ready(() => {
@@ -69,6 +70,12 @@ $("#playOrPause-button").click(() => {
 });
 
 
+audio.addEventListener('ended', () => {
+    $("#i-playOrPause").removeClass("fa-pause").addClass("fa-play");
+    paused = true;
+});
+
+
 // FORWARD BUTTON
 let value = 0;
 let songsLength = songs.length;
@@ -77,21 +84,23 @@ $("#forward-button").click(() => {
     if(value >= songsLength - 1) {
         nextElement = 0;
         value = 0;
+        paused = true;
         $(".site-container").css("background-image", `url(${songs[nextElement].img})`);
         $("#song-name-h3").text(`${songs[nextElement].song_name}`);
         $("#artist-name-span").text(`${songs[nextElement].artist}`);
         $("#audio").attr("src", `${songs[nextElement].song_file}`);
         $("#i-playOrPause").removeClass("fa-pause").addClass("fa-play");
-        paused = true;
+
     } else {
         let nextElement = value + 1;
+        paused = true;
+        value += 1;
+        key = nextElement;
         $(".site-container").css("background-image", `url(${songs[nextElement].img})`);
         $("#song-name-h3").text(`${songs[nextElement].song_name}`);
         $("#artist-name-span").text(`${songs[nextElement].artist}`);
         $("#audio").attr("src", `${songs[nextElement].song_file}`);
         $("#i-playOrPause").removeClass("fa-pause").addClass("fa-play");
-        paused = true;
-        value += 1;
     }
 });
 
@@ -107,14 +116,15 @@ $("#backward-button").click(() => {
         $("#audio").attr("src", `${songs[prevElement].song_file}`);
         $("#i-playOrPause").removeClass("fa-pause").addClass("fa-play");
         paused = true;
+
     } else {
         value = songsLength - 1;
         prevElement = value;
+        paused = true;
         $(".site-container").css("background-image", `url(${songs[prevElement].img})`)
         $("#song-name-h3").text(`${songs[prevElement].song_name}`);
         $("#artist-name-span").text(`${songs[prevElement].artist}`);
         $("#audio").attr("src", `${songs[prevElement].song_file}`);
         $("#i-playOrPause").removeClass("fa-pause").addClass("fa-play");
-        paused = true;
     }
 });

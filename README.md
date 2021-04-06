@@ -1,6 +1,12 @@
 # Online Music
 ## Descrição
-Site para ouvir música
+Site para ouvir música.
 
 ## Status
-Em construção...
+Concluído :heavy_check_mark:
+
+## Tecnologias usadas
+- HTML
+- CSS
+- JavaScript
+- Jquery
