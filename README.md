@@ -13,5 +13,5 @@ Concluído :heavy_check_mark:
 
 ## Deploy da aplicação com Netlify
 ```
-https://determined-brattain-9a8bd7.netlify.app
+https://online-music00.netlify.app/
 ```
