@@ -10,8 +10,3 @@ Concluído :heavy_check_mark:
 - CSS
 - JavaScript
 - Jquery
-
-## Deploy da aplicação com Netlify
-```
-https://online-music00.netlify.app/
-```
